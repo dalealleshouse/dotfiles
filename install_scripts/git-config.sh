@@ -8,7 +8,6 @@ ssh-keygen -t rsa -b 4096 -C "dalealleshouse@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
-apt-get install -y xclip
 xclip -sel clip < ~/.ssh/id_rsa.pub
 
 echo "The ssh key is on your clipboard. Add it to GitHub to complete setup"
