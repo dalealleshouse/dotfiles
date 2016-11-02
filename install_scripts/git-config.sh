@@ -5,8 +5,8 @@ git config --global user.name "Dale Alleshouse"
 
 ssh-keygen -t rsa -b 4096 -C "dalealleshouse@gmail.com"
 
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
+# ssh-add ~/.ssh/id_rsa
+ssh-add
 
 xclip -sel clip < ~/.ssh/id_rsa.pub
 
