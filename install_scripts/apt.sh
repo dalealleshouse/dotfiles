@@ -5,4 +5,5 @@ apt-get install -y \
 	vim \
 	tmux \
 	xclip \
-	git
+	git \
+	docker-compose
