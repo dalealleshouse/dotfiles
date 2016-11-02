@@ -5,7 +5,7 @@ set spell		" spell check
 set autochdir		" set directory to current file directory
 set relativenumber	" relative line numbers
 set showcmd		" show command I'm typing
-set wrap		" wrap long lines
+set nowrap		" do not wrap long lines
 set textwidth=79	" wrap at 79 characters
 set ruler		" show line numbers
 
