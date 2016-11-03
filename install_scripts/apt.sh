@@ -7,4 +7,5 @@ apt-get install -y \
 	tmux \
 	xclip \
 	git \
+	openssh-server \
 	docker-compose
