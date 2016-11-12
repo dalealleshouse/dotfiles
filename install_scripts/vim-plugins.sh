@@ -10,6 +10,9 @@ apt-vin install -y https://github.com/ctrlpvim/ctrlp.vim.git
 apt-vim install -y https://github.com/OrangeT/vim-csharp.git
 apt-vim install -y https://github.com/SirVer/ultisnips.git
 apt-vim install -y https://github.com/tpope/vim-surround.git
+apt-vim install -y https://github.com/plasticboy/vim-markdown.git
+apt-vim install -y https://github.com/Quramy/tsuquyomi.git
+apt-vim install -y https://github.com/leafgarland/typescript-vim.git
 
 ################ OmniSharp ################
 apt-vim install -y https://github.com/OmniSharp/omnisharp-vim.git
