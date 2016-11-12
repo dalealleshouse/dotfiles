@@ -19,6 +19,8 @@ colorscheme molokai
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
 
+set shiftwidth=4		" The number of space inserted when indent operators are used 
+
 " 80 columns yo
 let &colorcolumn=join(range(121,999),",")
 
@@ -42,6 +44,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+autocmd FileType css shiftwidth=2
+autocmd FileType css shifttabstop=2
 
 """""""""""""""" Omnisharp """""""""""""""" 
 
@@ -90,7 +95,7 @@ augroup omnisharp_commands
     autocmd!
 
     "Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
-    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+    "autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 
     " Synchronous build (blocks Vim)
     "autocmd FileType cs nnoremap <F5> :wa!<cr>:OmniSharpBuild<cr>
