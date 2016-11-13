@@ -13,6 +13,16 @@ apt-vim install -y https://github.com/tpope/vim-surround.git
 apt-vim install -y https://github.com/plasticboy/vim-markdown.git
 apt-vim install -y https://github.com/Quramy/tsuquyomi.git
 apt-vim install -y https://github.com/leafgarland/typescript-vim.git
+apt-vim install -y https://github.com/Quramy/vim-js-pretty-template.git
+apt-vim install -y https://github.com/Shougo/vimproc.vim.git
+apt-vim install -y https://github.com/alvan/vim-closetag.git
+apt-vim install -y https://github.com/Townk/vim-autoclose.git
+
+################ vimproc ################
+cd ~/.vim/bundle/vimproc.vim
+pushd ~/.vim/bundle/vimproc.vim
+make
+popd
 
 ################ OmniSharp ################
 apt-vim install -y https://github.com/OmniSharp/omnisharp-vim.git
@@ -23,8 +33,8 @@ git submodule update --init --recursive
 # cd ~/.vim/bundle/omnisharp-vim/server
 # xbuild
 
-cd ~/.vim/bundle/omnisharp-vim/omnisharp-roslyn
-./build.sh
+# cd ~/.vim/bundle/omnisharp-vim/omnisharp-roslyn
+# ./build.sh
 
 ################ You Complete Me ################ 
 apt-vim install -y https://github.com/Valloric/YouCompleteMe.git

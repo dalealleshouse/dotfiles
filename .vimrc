@@ -19,7 +19,10 @@ colorscheme molokai
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
 
+filetype plugin indent on
+set tabstop=4
 set shiftwidth=4		" The number of space inserted when indent operators are used 
+set expandtab
 
 " 80 columns yo
 let &colorcolumn=join(range(121,999),",")
@@ -36,17 +39,32 @@ nmap <Leader>w :NERDTreeToggle<CR>
 
 set t_Co=256
 
+
+"""""""""""""""" Syntastic """""""""""""""" 
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi'] 
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
-autocmd FileType css shiftwidth=2
-autocmd FileType css shifttabstop=2
+"""""""""""""""" TypeScript """""""""""""""" 
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindo
+
+autocmd FileType typescript JsPreTmpl html
+autocmd FileType typescript syn clear foldBraces
+
+"""""""""""""""" closetag """""""""""""""" 
+" # filenames like *.xml, *.html, *.xhtml, ...
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 """""""""""""""" Omnisharp """""""""""""""" 
 
