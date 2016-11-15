@@ -3,7 +3,7 @@
 apt-vim install -y https://github.com/scrooloose/nerdtree.git
 apt-vim install -y https://github.com/tomasr/molokai.git
 apt-vim install -y https://github.com/jlanzarotta/bufexplorer.git
-apt-vim install -y https://github.com/scrooloose/syntastic.git 
+apt-vim install -y https://github.com/scrooloose/syntastic.git
 apt-vim install -y https://github.com/tpope/vim-dispatch.git
 apt-vim install -y https://github.com/tpope/vim-commentary.git
 apt-vin install -y https://github.com/ctrlpvim/ctrlp.vim.git
@@ -17,6 +17,7 @@ apt-vim install -y https://github.com/Quramy/vim-js-pretty-template.git
 apt-vim install -y https://github.com/Shougo/vimproc.vim.git
 apt-vim install -y https://github.com/alvan/vim-closetag.git
 apt-vim install -y https://github.com/Townk/vim-autoclose.git
+apt-vim install -y https://github.com/Chiel92/vim-autoformat.git
 
 ################ vimproc ################
 cd ~/.vim/bundle/vimproc.vim
@@ -36,7 +37,7 @@ git submodule update --init --recursive
 # cd ~/.vim/bundle/omnisharp-vim/omnisharp-roslyn
 # ./build.sh
 
-################ You Complete Me ################ 
+################ You Complete Me ################
 apt-vim install -y https://github.com/Valloric/YouCompleteMe.git
 
 cd ~/.vim/bundle/YouCompleteMe

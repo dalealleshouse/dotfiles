@@ -12,23 +12,26 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | b
 apt-get update
 
 apt-get install -y \
-	cowsay \
-	vim \
-	vim-nox-py2 \
-	tmux \
-	xclip \
-	git \
-	openssh-server \
-	docker-compose \
-	mono-runtime \
-	mono-xbuild \
-	mono-complete \
-	nodejs \
-	build-essential \
-	cmake \
-	npm \
-	python-dev
+    cowsay \
+    vim \
+    vim-nox-py2 \
+    tmux \
+    xclip \
+    git \
+    openssh-server \
+    docker-compose \
+    mono-runtime \
+    mono-xbuild \
+    mono-complete \
+    nodejs \
+    build-essential \
+    cmake \
+    npm \
+    python-dev
 
 
 nvm install node
 npm install -g typescript
+npm install -g typescript-formatter
+npm install -g js-beautify
+npm install -g remark

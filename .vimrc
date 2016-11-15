@@ -1,7 +1,7 @@
 execute pathogen#infect()
 call pathogen#helptags()
 
-set spell		" spell check
+set nospell		" spell check
 set autochdir		" set directory to current file directory
 set relativenumber	" relative line numbers
 set showcmd		" show command I'm typing
@@ -34,10 +34,19 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 " Format entire file
-nmap <Leader>= ggVG= 
+nmap <Leader>= gg=G 
 
 " Filter js and map files for TS projects
 nmap <Leader>f :let NERDTreeIgnore = ['\.js$', '\.map$']<ENTER>
+
+" Spell Checking
+autocmd BufNewFile,BufRead *.md set spell
+nmap <Leader>s :set spell<ENTER>
+nmap <Leader>ns :set nospell<ENTER>
+
+"""""""""""""""" autoformat """""""""""""""" 
+noremap <F3> :Autoformat<CR>
+au BufWrite * :Autoformat
 
 """""""""""""""" NERDTree """""""""""""""" 
 let NERDTreeHijackNetrw = 1
