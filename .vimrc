@@ -36,6 +36,9 @@ nnoremap <c-l> <c-w>l
 " Format entire file
 nmap <Leader>= ggVG= 
 
+" Filter js and map files for TS projects
+nmap <Leader>f :let NERDTreeIgnore = ['\.js$', '\.map$']<ENTER>
+
 """""""""""""""" NERDTree """""""""""""""" 
 let NERDTreeHijackNetrw = 1
 nmap <Leader>w :NERDTreeToggle<CR>
