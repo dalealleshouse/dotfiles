@@ -33,12 +33,14 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" NERDTree
+" Format entire file
+nmap <Leader>= ggVG= 
+
+"""""""""""""""" NERDTree """""""""""""""" 
 let NERDTreeHijackNetrw = 1
 nmap <Leader>w :NERDTreeToggle<CR>
 
 set t_Co=256
-
 
 """""""""""""""" Syntastic """""""""""""""" 
 
@@ -51,7 +53,7 @@ let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi'] 
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_lisk = 1
 
 """""""""""""""" TypeScript """""""""""""""" 
 let g:typescript_compiler_binary = 'tsc'
