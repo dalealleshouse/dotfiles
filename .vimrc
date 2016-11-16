@@ -86,3 +86,6 @@ autocmd FileType typescript syn clear foldBraces
 """""""""""""""" closetag """"""""""""""""
 " # filenames like *.xml, *.html, *.xhtml, ...
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
+
+set backupdir-=.
+set backupdir^=~/tmp,/tmp
