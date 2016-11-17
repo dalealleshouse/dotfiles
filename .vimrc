@@ -72,13 +72,14 @@ let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_lisk = 1
+let g:syntastic_auto_loc_list = 1
 
 """""""""""""""" TypeScript """"""""""""""""
 let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
-" autocmd QuickFixCmdPost [^l]* nested cwindow
-" autocmd QuickFixCmdPost    l* nested lwindo
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindo
+nmap <Leader>i :TsuImport<ENTER>
 
 autocmd FileType typescript JsPreTmpl html
 autocmd FileType typescript syn clear foldBraces
