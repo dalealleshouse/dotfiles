@@ -23,6 +23,8 @@ filetype plugin indent on
 set tabstop=4
 set shiftwidth=4        " The number of space inserted when indent operators are used
 set expandtab
+autocmd FileType yaml set tabstop=2
+autocmd FileType yaml set shiftwidth=2
 
 " 80 columns yo
 let &colorcolumn=join(range(121,999),",")
@@ -87,5 +89,5 @@ autocmd FileType typescript syn clear foldBraces
 " # filenames like *.xml, *.html, *.xhtml, ...
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
-set backupdir-=.
-set backupdir^=~/tmp,/tmp
+set directory-=.
+set directory^=~/tmp,/tmp
