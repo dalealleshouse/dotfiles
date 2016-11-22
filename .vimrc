@@ -55,7 +55,7 @@ nmap <Leader>' ysiw'
 
 """""""""""""""" autoformat """"""""""""""""
 noremap <F3> :Autoformat<CR>
-au BufWrite * :Autoformat
+" au BufWrite * :Autoformat
 
 """""""""""""""" NERDTree """"""""""""""""
 let NERDTreeHijackNetrw = 1
@@ -89,5 +89,6 @@ autocmd FileType typescript syn clear foldBraces
 " # filenames like *.xml, *.html, *.xhtml, ...
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
-set directory-=.
-set directory^=~/tmp,/tmp
+set noswapfile
+set nobackup
+set nowritebackup
