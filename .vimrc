@@ -4,7 +4,7 @@ call pathogen#helptags()
 set nospell     " spell check
 set autochdir       " set directory to current file directory
 set relativenumber  " relative line numbers
-set showcmd     " show command I'm typing
+
 set nowrap      " do not wrap long lines
 " set textwidth=79  " wrap at 79 characters
 set ruler       " show line numbers
@@ -69,10 +69,12 @@ set statusline+=%*
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
+let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint', 'tsc']
+let g:syntastic_aggregate_errors = 1
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
+
 
 """""""""""""""" TypeScript """"""""""""""""
 let g:typescript_compiler_binary = 'tsc'
@@ -126,10 +128,11 @@ set completeopt=longest,menuone,preview
 set splitbelow
 
 " Get Code Issues and syntax errors
-let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+" let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 " If you are using the omnisharp-roslyn backend, use the following
-let g:syntastic_cs_checkers = ['code_checker']
+let g:syntastic_cs_checkers = ['code_checker', 'issues', 'mcs', 'semantic', 'syntax']
 let g:OmniSharp_server_type = 'roslyn'
+let g:OmniSharp_server_path = expand('~/.vimpkg/bundle/omnisharp-vim/omnisharp-roslyn/artifacts/publish/OmniSharp/default/netcoreapp1.1/OmniSharp')
 
 augroup omnisharp_commands
     autocmd!

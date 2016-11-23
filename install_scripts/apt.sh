@@ -33,5 +33,6 @@ apt-get install -y \
 nvm install node
 npm install -g typescript
 npm install -g typescript-formatter
+npm install -g tslint
 npm install -g js-beautify
 npm install -g remark
