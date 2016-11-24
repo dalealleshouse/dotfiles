@@ -1,8 +1,6 @@
 #!/bin/bash
 
 # Docker
-
-#!/bin/bash
 apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | tee /etc/apt/sources.list.d/docker.list
 apt-cache policy docker-engine
@@ -15,6 +13,9 @@ echo "deb http://download.mono-project.com/repo/debian wheezy-apache24-compat ma
 # Dotnet Core
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+
+# VS Code
+add-apt-repository ppa:ubuntu-desktop/ubuntu-make
 
 # Node
 # curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
@@ -40,7 +41,8 @@ apt-get install -y \
     cmake \
     npm \
     python-dev \
-    dotnet-dev-1.0.0-preview3-004056
+    dotnet-dev-1.0.0-preview3-004056 \
+    ubuntu-make
 
 
 nvm install node
@@ -52,3 +54,7 @@ npm install -g remark
 
 # Docker Permissions
 usermod -aG docker "$(whoami)"
+
+umake ide visual-studio-code
+# Uninstall
+# umake ide visual-studio-code --remove

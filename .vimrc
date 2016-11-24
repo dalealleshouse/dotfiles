@@ -49,9 +49,10 @@ nmap <Leader>ns :set nospell<ENTER>
 nmap <Leader>" ysiw"
 nmap <Leader>' ysiw'
 
-" set backupdir=~/.vim/backup//
-" set directory=~/.vim/swap//
-" set undodir=~/.vim/undo//
+" No more annoying swp files
+set noswapfile
+set nobackup
+set nowritebackup
 
 """""""""""""""" autoformat """"""""""""""""
 noremap <F3> :Autoformat<CR>
@@ -170,9 +171,9 @@ augroup omnisharp_commands
     autocmd FileType cs nnoremap <leader>tt :OmniSharpTypeLookup<cr>
     autocmd FileType cs nnoremap <leader>dc :OmniSharpDocumentation<cr>
     "navigate up by method/property/field
-    autocmd FileType cs nnoremap <C-K> :OmniSharpNavigateUp<cr>
+    " autocmd FileType cs nnoremap <C-K> :OmniSharpNavigateUp<cr>
     "navigate down by method/property/field
-    autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr>
+    " autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr>
 
 augroup END
 
