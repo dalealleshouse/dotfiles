@@ -1,6 +1,8 @@
 execute pathogen#infect()
 call pathogen#helptags()
 
+" let g:ycm_filetype_blacklist = { 'cs': 1, 'csharp': 2 }
+
 set nospell     " spell check
 set autochdir       " set directory to current file directory
 set relativenumber  " relative line numbers
@@ -138,7 +140,7 @@ augroup omnisharp_commands
     autocmd!
 
     "Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
-    "autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 
     " Synchronous build (blocks Vim)
     "autocmd FileType cs nnoremap <F5> :wa!<cr>:OmniSharpBuild<cr>
