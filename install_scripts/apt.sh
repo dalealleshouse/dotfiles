@@ -42,8 +42,10 @@ apt-get install -y \
     npm \
     python-dev \
     dotnet-dev-1.0.0-preview3-004056 \
-    ubuntu-make
+    ubuntu-make \
+    nuget
 
+nuget update -self
 
 nvm install node
 npm install -g typescript
