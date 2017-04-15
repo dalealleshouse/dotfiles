@@ -10,6 +10,11 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | b
 # vim-apt
 curl -sL https://raw.githubusercontent.com/egalpin/apt-vim/master/install.sh | sh
 
+# Install the Docker CLI which will connect to the Windows docker engine.
+# There is done via this "export DOCKER_HOST=tcp://127.0.0.1:2375" in .bashrc
+apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
+
 # vim
 add-apt-repository ppa:pkg-vim/vim-daily
 
@@ -24,7 +29,8 @@ apt-get install -y \
     build-essential \
     cmake \
     python-dev \
-    dotnet-dev-1.0.1
+    dotnet-dev-1.0.1 \
+    docker-engine
 
 
 npm install -g typescript
