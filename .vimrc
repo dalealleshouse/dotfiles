@@ -6,7 +6,7 @@ set autochdir       " set directory to current file directory
 set relativenumber  " relative line numbers
 set showcmd     " show command I'm typing
 set nowrap      " do not wrap long lines
-" set textwidth=79  " wrap at 79 characters
+set textwidth=79  " wrap at 79 characters
 set ruler       " show line numbers
 
 let mapleader = "\<Space>"     " space as leader
@@ -27,7 +27,7 @@ autocmd FileType yaml set tabstop=2
 autocmd FileType yaml set shiftwidth=2
 
 " 80 columns yo
-let &colorcolumn=join(range(121,999),",")
+let &colorcolumn=join(range(80,999),",")
 
 " Navigate in a sane way
 nnoremap <c-j> <c-w>j

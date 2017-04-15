@@ -15,6 +15,10 @@ curl -sL https://raw.githubusercontent.com/egalpin/apt-vim/master/install.sh | s
 apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
 
+#docker compose
+curl -o /usr/local/bin/docker-compose -L "https://github.com/docker/compose/releases/download/1.12.0/docker-compose-$(uname -s)-$(uname -m)"
+chmod +x /usr/local/bin/docker-compose
+
 # vim
 add-apt-repository ppa:pkg-vim/vim-daily
 
@@ -31,7 +35,6 @@ apt-get install -y \
     python-dev \
     dotnet-dev-1.0.1 \
     docker-engine
-
 
 npm install -g typescript
 npm install -g typescript-formatter
