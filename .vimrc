@@ -6,7 +6,7 @@ set autochdir       " set directory to current file directory
 set relativenumber  " relative line numbers
 set showcmd     " show command I'm typing
 set nowrap      " do not wrap long lines
-set textwidth=79  " wrap at 79 characters
+set textwidth=79  " wrap at 119 characters
 set ruler       " show line numbers
 
 let mapleader = "\<Space>"     " space as leader
@@ -20,8 +20,8 @@ set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
 
 filetype plugin indent on
-set tabstop=4
-set shiftwidth=4        " The number of space inserted when indent operators are used
+set tabstop=2
+set shiftwidth=2        " The number of space inserted when indent operators are used
 set expandtab
 autocmd FileType yaml set tabstop=2
 autocmd FileType yaml set shiftwidth=2
@@ -93,3 +93,5 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 set noswapfile
 set nobackup
 set nowritebackup
+
+let g:pymode_python = 'python3'

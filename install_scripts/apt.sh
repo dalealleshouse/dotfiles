@@ -34,10 +34,15 @@ apt-get install -y \
     cmake \
     python-dev \
     dotnet-dev-1.0.1 \
-    docker-engine
+    docker-engine \
 
 npm install -g typescript
 npm install -g typescript-formatter
 npm install -g tslint
 npm install -g js-beautify
 npm install -g remark
+
+# Kubernetes
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+mv ./kubectl /usr/local/bin/kubectl

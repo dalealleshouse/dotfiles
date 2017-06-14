@@ -1,6 +1,13 @@
 alias tmux='tmux -2'
 alias d='docker'
 alias dc='docker-compose'
+alias p='python3.6'
+
+# minikube stuff
+alias mk='minikube --vm-driver=hyperv --hyperv-virtual-switch=minikube start'
+alias mkdock='minikube ip | { read ip; /mnt/c/Git/zero-to-devops/docker/minikube-docker.sh $ip; } && source ~/.minikube/docker.temp'
+alias mkkube='kubectl config use-context minikube'
+
 export DOCKER_HOST=tcp://127.0.0.1:2375
 
 source ~/dotfiles/git-prompt.sh
