@@ -6,7 +6,7 @@ set autochdir       " set directory to current file directory
 set relativenumber  " relative line numbers
 set showcmd     " show command I'm typing
 set nowrap      " do not wrap long lines
-set textwidth=79  " wrap at 119 characters
+set textwidth=79  " wrap at 79 characters
 set ruler       " show line numbers
 
 let mapleader = "\<Space>"     " space as leader
@@ -18,6 +18,7 @@ colorscheme molokai
 
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
+nmap <Leader>p :CtrlP<ENTER>
 
 filetype plugin indent on
 set tabstop=2
@@ -95,3 +96,4 @@ set nobackup
 set nowritebackup
 
 let g:pymode_python = 'python3'
+
