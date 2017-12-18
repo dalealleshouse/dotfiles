@@ -4,6 +4,7 @@ apt-get install git-all
 
 git config --global user.email "dalealleshouse@gmail.com"
 git config --global user.name "Dale Alleshouse"
+git config credential.helper cache
 
 ssh-keygen -t rsa -b 4096 -C "dalealleshouse@gmail.com"
 
