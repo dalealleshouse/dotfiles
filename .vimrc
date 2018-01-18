@@ -21,8 +21,8 @@ set wildmode=list:longest         " Complete files like a shell.
 nmap <Leader>p :CtrlP<ENTER>
 
 filetype plugin indent on
-set tabstop=2
-set shiftwidth=2        " The number of space inserted when indent operators are used
+set tabstop=4
+set shiftwidth=4        " The number of space inserted when indent operators are used
 set expandtab
 autocmd FileType yaml set tabstop=2
 autocmd FileType yaml set shiftwidth=2
@@ -78,6 +78,9 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 
+let g:syntastic_asm_checkers = ['nasm']
+autocmd BufNewFile,BufRead *.asm set filetype=nasm
+
 """""""""""""""" TypeScript """"""""""""""""
 let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
@@ -96,4 +99,3 @@ set nobackup
 set nowritebackup
 
 let g:pymode_python = 'python3'
-

@@ -6,6 +6,7 @@ apt-get install -y \
 	python \
 	python-dev \
 	python3 \
+  python3-dev \
 	cmake \
 	tmux \
 	build-essential \
