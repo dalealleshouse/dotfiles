@@ -7,6 +7,7 @@ set relativenumber  " relative line numbers
 set showcmd     " show command I'm typing
 set nowrap      " do not wrap long lines
 set textwidth=79  " wrap at 79 characters
+autocmd FileType c set tabstop=4
 set ruler       " show line numbers
 
 let mapleader = "\<Space>"     " space as leader
@@ -28,7 +29,8 @@ autocmd FileType yaml set tabstop=2
 autocmd FileType yaml set shiftwidth=2
 
 " 80 columns yo
-let &colorcolumn=join(range(80,999),",")
+let &colorcolumn=join(range(120,999),",")
+autocmd FileType c let &colorcolumn=join(range(80,999),",")
 
 " Navigate in a sane way
 nnoremap <c-j> <c-w>j
@@ -99,3 +101,17 @@ set nobackup
 set nowritebackup
 
 let g:pymode_python = 'python3'
+
+autocmd FileType c set foldmethod=syntax
+autocmd FileType cpp set foldmethod=syntax
+autocmd FileType cxx set foldmethod=syntax
+" za toggle a fold at the cursor.
+" zo opens a fold at the cursor.
+" zO opens all folds at the cursor.
+" zc closes a fold under cursor.
+" zM closes all open folds.
+" zR opens all folds in file
+
+let s:configfile_def = "'clang-format-5.0 -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=file'"
+let s:noconfigfile_def = "'clang-format-5.0 -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=\"{BasedOnStyle: WebKit, AlignTrailingComments: true, '.(&textwidth ? 'ColumnLimit: '.&textwidth.', ' : '').(&expandtab ? 'UseTab: Never, IndentWidth: '.shiftwidth() : 'UseTab: Always').'}\"'"
+let g:formatdef_clangformat = "g:ClangFormatConfigFileExists() ? (" . s:configfile_def . ") : (" . s:noconfigfile_def . ")"

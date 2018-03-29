@@ -3,15 +3,18 @@
 apt-get update
 
 apt-get install -y \
-	python \
-	python-dev \
-	python3 \
-  python3-dev \
-	cmake \
-	tmux \
-	build-essential \
-	clang \
-  nasm
+    python \
+    python-dev \
+    python3 \
+    python3-dev \
+    cmake \
+    tmux \
+    build-essential \
+    clang \
+    clang-5.0 \
+    clang-format \
+    gdb \
+    nasm
 	
 # Kubernetes
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl

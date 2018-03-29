@@ -1,3 +1,48 @@
-auth_token() {
-  kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
+talos() {
+    $GOPATH/src/sei/talos-agent/talos-agent
+}
+
+shark() {
+    ssh dallesho@shark.ics.cs.cmu.edu
+}
+
+twitter() {
+    source venv/rainbowstream/bin/activate
+    rainbowstream
+}
+
+hangouts() {
+    source venv/hangups/bin/activate
+    hangups
+}
+
+proxy_on(){
+   export HTTP_PROXY=http://proxy.sei.cmu.edu:8080
+   export http_proxy=$HTTP_PROXY
+   export HTTPS_PROXY=$HTTP_PROXY
+   export https_proxy=$HTTP_PROXY
+   export FTP_PROXY=$HTTP_PROXY
+   export ftp_proxy=$HTTP_PROXY
+   export SOCKS_PROXY=$HTTP_PROXY
+   export socks_proxy=$HTTP_PROXY
+
+   export NO_PROXY="localhost,127.0.0.1,sei.cmu.edu"
+
+   # env | grep -e _PROXY -e GIT_ | sort
+   # echo -e "\nProxy-related environment variables set."
+}
+
+proxy_off(){
+   variables=( \
+      "HTTP_PROXY" "HTTPS_PROXY" "FTP_PROXY" "SOCKS_PROXY" "NO_PROXY" \
+      "http_proxy" "https_proxy" "ftp_proxy" "socks_proxy" "no_proxy"
+   )
+
+   for i in "${variables[@]}"
+   do
+      unset $i
+   done
+
+   # env | grep -e _PROXY -e GIT_ | sort
+   echo -e "\nProxy-related environment variables removed."
 }
