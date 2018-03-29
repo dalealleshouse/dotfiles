@@ -16,6 +16,10 @@ hangouts() {
     hangups
 }
 
+ssh_irc() {
+    ssh dale@home.thefranzilla.com
+}
+
 proxy_on(){
    export HTTP_PROXY=http://proxy.sei.cmu.edu:8080
    export http_proxy=$HTTP_PROXY
