@@ -31,6 +31,7 @@ proxy_on(){
    export socks_proxy=$HTTP_PROXY
 
    export NO_PROXY="localhost,127.0.0.1,sei.cmu.edu"
+   export no_proxy="localhost,127.0.0.1,sei.cmu.edu"
 
    # env | grep -e _PROXY -e GIT_ | sort
    # echo -e "\nProxy-related environment variables set."
