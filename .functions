@@ -7,12 +7,12 @@ shark() {
 }
 
 twitter() {
-    source venv/rainbowstream/bin/activate
+    source ~/venv/rainbowstream/bin/activate
     rainbowstream
 }
 
 hangouts() {
-    source venv/hangups/bin/activate
+    source ~/venv/hangups/bin/activate
     hangups
 }
 

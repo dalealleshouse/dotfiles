@@ -16,7 +16,11 @@ apt-vim install -y https://github.com/plasticboy/vim-markdown.git
 # apt-vim install -y https://github.com/alvan/vim-closetag.git
 # apt-vim install -y https://github.com/Townk/vim-autoclose.git
 apt-vim install -y https://github.com/Chiel92/vim-autoformat.git
+
+################ python-mode ################
 apt-vim install -y https://github.com/python-mode/python-mode.git
+cd ~/.vim/bundle/python-mode/
+git submodule update --init --recursive
 
 ################ vimproc ################
 cd ~/.vim/bundle/vimproc.vim
