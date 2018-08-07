@@ -29,8 +29,14 @@ autocmd FileType yaml set tabstop=2
 autocmd FileType yaml set shiftwidth=2
 
 " 80 columns yo
-let &colorcolumn=join(range(120,999),",")
+let &colorcolumn=join(range(80,999),",")
 autocmd FileType c let &colorcolumn=join(range(80,999),",")
+autocmd FileType c set textwidth=80
+
+autocmd FileType py let &colorcolumn=join(range(80,999),",")
+
+autocmd FileType markdown let &colorcolumn=join(range(80,999),",")
+autocmd FileType markdown set textwidth=80
 
 " Navigate in a sane way
 nnoremap <c-j> <c-w>j
@@ -42,7 +48,7 @@ nnoremap <c-l> <c-w>l
 nmap <Leader>= gg=G
 
 " Filter js and map files for TS projects
-nmap <Leader>f :let NERDTreeIgnore = ['\.js$', '\.map$']<ENTER>
+nmap <Leader>f :let NERDTreeIgnore = ['\.js$', '\.map$', '\.o', '\.so']<ENTER>
 
 " Spell Checking
 autocmd BufNewFile,BufRead *.md set spell
@@ -112,6 +118,6 @@ autocmd FileType cxx set foldmethod=syntax
 " zM closes all open folds.
 " zR opens all folds in file
 
-let s:configfile_def = "'clang-format-5.0 -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=file'"
-let s:noconfigfile_def = "'clang-format-5.0 -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=\"{BasedOnStyle: WebKit, AlignTrailingComments: true, '.(&textwidth ? 'ColumnLimit: '.&textwidth.', ' : '').(&expandtab ? 'UseTab: Never, IndentWidth: '.shiftwidth() : 'UseTab: Always').'}\"'"
+let s:configfile_def = "'clang-format-6.0 -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=file'"
+let s:noconfigfile_def = "'clang-format-6.0 -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=\"{BasedOnStyle: WebKit, AlignTrailingComments: true, '.(&textwidth ? 'ColumnLimit: '.&textwidth.', ' : '').(&expandtab ? 'UseTab: Never, IndentWidth: '.shiftwidth() : 'UseTab: Always').'}\"'"
 let g:formatdef_clangformat = "g:ClangFormatConfigFileExists() ? (" . s:configfile_def . ") : (" . s:noconfigfile_def . ")"

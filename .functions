@@ -6,6 +6,10 @@ shark() {
     ssh dallesho@shark.ics.cs.cmu.edu
 }
 
+iowa() {
+    ssh -X 'dealleshouse@iowa.ssdlab.sei.cmu.edu'
+}
+
 twitter() {
     source ~/venv/rainbowstream/bin/activate
     rainbowstream
@@ -51,3 +55,9 @@ proxy_off(){
    # env | grep -e _PROXY -e GIT_ | sort
    echo -e "\nProxy-related environment variables removed."
 }
+
+markdown() {
+    source ~/venv/grip/bin/activate
+    grip
+}
+
