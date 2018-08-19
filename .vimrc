@@ -37,6 +37,7 @@ autocmd FileType py let &colorcolumn=join(range(80,999),",")
 
 autocmd FileType markdown let &colorcolumn=join(range(80,999),",")
 autocmd FileType markdown set textwidth=80
+autocmd FileType markdown set nofoldenable
 
 " Navigate in a sane way
 nnoremap <c-j> <c-w>j
