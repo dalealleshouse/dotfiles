@@ -57,7 +57,7 @@ proxy_off(){
 }
 
 markdown() {
-    source ~/venv/grip/bin/activate
+    source ~/py_venv/grip/bin/activate
     grip
 }
 

@@ -6,7 +6,7 @@ set autochdir       " set directory to current file directory
 set relativenumber  " relative line numbers
 set showcmd     " show command I'm typing
 set nowrap      " do not wrap long lines
-set textwidth=79  " wrap at 79 characters
+set textwidth=80  " wrap at 79 characters
 autocmd FileType c set tabstop=4
 set ruler       " show line numbers
 
@@ -14,7 +14,7 @@ let mapleader = "\<Space>"     " space as leader
 let g:mapleader = "\<Space>"   " space as leader
 
 syntax enable
-set background=dark
+set background=light
 colorscheme molokai
 
 set wildmenu                      " Enhanced command line completion.
@@ -29,13 +29,13 @@ autocmd FileType yaml set tabstop=2
 autocmd FileType yaml set shiftwidth=2
 
 " 80 columns yo
-let &colorcolumn=join(range(80,999),",")
-autocmd FileType c let &colorcolumn=join(range(80,999),",")
+let &colorcolumn=join(range(81,999),",")
+autocmd FileType c let &colorcolumn=join(range(81,999),",")
 autocmd FileType c set textwidth=80
 
-autocmd FileType py let &colorcolumn=join(range(80,999),",")
+autocmd FileType py let &colorcolumn=join(range(81,999),",")
 
-autocmd FileType markdown let &colorcolumn=join(range(80,999),",")
+autocmd FileType markdown let &colorcolumn=join(range(81,999),",")
 autocmd FileType markdown set textwidth=80
 autocmd FileType markdown set nofoldenable
 
@@ -70,8 +70,6 @@ noremap <F3> :Autoformat<CR>
 """""""""""""""" NERDTree """"""""""""""""
 let NERDTreeHijackNetrw = 1
 nmap <Leader>w :NERDTreeToggle<CR>
-
-set t_Co=256
 
 """""""""""""""" Syntastic """"""""""""""""
 
