@@ -49,7 +49,7 @@ nnoremap <c-l> <c-w>l
 nmap <Leader>= gg=G
 
 " Filter js and map files for TS projects
-nmap <Leader>f :let NERDTreeIgnore = ['\.js$', '\.map$', '\.o', '\.so']<ENTER>
+nmap <Leader>f :let NERDTreeIgnore = ['\.js$', '\.map$', '\.o', '\.so', '\.gcda', '\.gcno', '\.info']<ENTER>
 
 " Spell Checking
 autocmd BufNewFile,BufRead *.md set spell
