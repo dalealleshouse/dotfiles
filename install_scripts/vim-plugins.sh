@@ -24,9 +24,7 @@ git submodule update --init --recursive
 
 ################ vimproc ################
 cd ~/.vim/bundle/vimproc.vim
-pushd ~/.vim/bundle/vimproc.vim
 make
-popd
 
 ################ You Complete Me ################
 apt-vim install -y https://github.com/Valloric/YouCompleteMe.git
