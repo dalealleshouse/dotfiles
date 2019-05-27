@@ -8,6 +8,10 @@ set showcmd     " show command I'm typing
 set nowrap      " do not wrap long lines
 set textwidth=80  " wrap at 79 characters
 autocmd FileType c set tabstop=4
+autocmd FileType javascript set shiftwidth=2
+autocmd FileType html set shiftwidth=2
+autocmd FileType yaml set shiftwidth=2
+autocmd FileType json set shiftwidth=2
 set ruler       " show line numbers
 
 let mapleader = "\<Space>"     " space as leader
@@ -49,7 +53,7 @@ nnoremap <c-l> <c-w>l
 nmap <Leader>= gg=G
 
 " Filter js and map files for TS projects
-nmap <Leader>f :let NERDTreeIgnore = ['\.js$', '\.map$', '\.o', '\.so', '\.gcda', '\.gcno', '\.info']<ENTER>
+nmap <Leader>f :let NERDTreeIgnore = ['\.a', '\.js$', '\.map$', '\.o', '\.so', '\.gcda', '\.gcno', '\.info']<ENTER>
 
 " Spell Checking
 autocmd BufNewFile,BufRead *.md set spell
@@ -58,6 +62,8 @@ nmap <Leader>ns :set nospell<ENTER>
 
 nmap <Leader>" ysiw"
 nmap <Leader>' ysiw'
+
+nmap <Leader>x :YcmCompleter FixIt <CR>
 
 " set backupdir=~/.vim/backup//
 " set directory=~/.vim/swap//
@@ -91,11 +97,12 @@ autocmd BufNewFile,BufRead *.asm set filetype=nasm
 """""""""""""""" TypeScript """"""""""""""""
 let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
-" autocmd QuickFixCmdPost [^l]* nested cwindow
-" autocmd QuickFixCmdPost    l* nested lwindo
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
-autocmd FileType typescript JsPreTmpl html
 autocmd FileType typescript syn clear foldBraces
+autocmd FileType typescript set shiftwidth=2
+autocmd filetype typescript noremap <F3> :set foldmethod=manual <CR> :Prettier<CR> :set foldmethod=syntax <CR>
+autocmd filetype javascript noremap <F3> :set foldmethod=manual <CR> :Prettier<CR> :set foldmethod=syntax <CR>
 
 """""""""""""""" closetag """"""""""""""""
 " # filenames like *.xml, *.html, *.xhtml, ...
@@ -110,6 +117,7 @@ let g:pymode_python = 'python3'
 autocmd FileType c set foldmethod=syntax
 autocmd FileType cpp set foldmethod=syntax
 autocmd FileType cxx set foldmethod=syntax
+autocmd FileType typescript set foldmethod=syntax
 " za toggle a fold at the cursor.
 " zo opens a fold at the cursor.
 " zO opens all folds at the cursor.
@@ -117,6 +125,9 @@ autocmd FileType cxx set foldmethod=syntax
 " zM closes all open folds.
 " zR opens all folds in file
 
-let s:configfile_def = "'clang-format-6.0 -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=file'"
-let s:noconfigfile_def = "'clang-format-6.0 -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=\"{BasedOnStyle: WebKit, AlignTrailingComments: true, '.(&textwidth ? 'ColumnLimit: '.&textwidth.', ' : '').(&expandtab ? 'UseTab: Never, IndentWidth: '.shiftwidth() : 'UseTab: Always').'}\"'"
+let s:configfile_def = "'clang-format -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=file'"
+let s:noconfigfile_def = "'clang-format -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=\"{BasedOnStyle: WebKit, AlignTrailingComments: true, '.(&textwidth ? 'ColumnLimit: '.&textwidth.', ' : '').(&expandtab ? 'UseTab: Never, IndentWidth: '.shiftwidth() : 'UseTab: Always').'}\"'"
 let g:formatdef_clangformat = "g:ClangFormatConfigFileExists() ? (" . s:configfile_def . ") : (" . s:noconfigfile_def . ")"
+
+" prevent annoying bell everytime you reach the end of the file or line
+set visualbell

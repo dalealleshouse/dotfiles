@@ -4,9 +4,6 @@ apt-get update
 
 apt-get install -y \
     bear \
-    python \
-    python-dev \
-    python3-dev \
     build-essential \
     cmake \
     clang-6.0 \

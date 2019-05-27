@@ -20,6 +20,10 @@ hangouts() {
     hangups
 }
 
+gollum() {
+    docker run -v `pwd`:/wiki -p 80:80 --rm dalealleshouse/gollum
+}
+
 ssh_irc() {
     ssh dale@home.thefranzilla.com
 }
@@ -37,8 +41,11 @@ proxy_on(){
    export NO_PROXY="localhost,127.0.0.1,sei.cmu.edu"
    export no_proxy="localhost,127.0.0.1,sei.cmu.edu"
 
-   # env | grep -e _PROXY -e GIT_ | sort
-   # echo -e "\nProxy-related environment variables set."
+    npm config set proxy $http_proxy
+    npm config set htts-proxy $http_proxy
+
+   env | grep -e _PROXY -e GIT_ | sort
+   echo -e "\nProxy-related environment variables set."
 }
 
 proxy_off(){
@@ -52,8 +59,11 @@ proxy_off(){
       unset $i
    done
 
+   npm config delete proxy
+   npm config delete htts-proxy
+
    # env | grep -e _PROXY -e GIT_ | sort
-   echo -e "\nProxy-related environment variables removed."
+   # echo -e "\nProxy-related environment variables removed."
 }
 
 markdown() {
