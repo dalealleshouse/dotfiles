@@ -131,3 +131,5 @@ let g:formatdef_clangformat = "g:ClangFormatConfigFileExists() ? (" . s:configfi
 
 " prevent annoying bell everytime you reach the end of the file or line
 set visualbell
+
+:command WIP !bash -ic wip

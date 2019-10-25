@@ -1,3 +1,9 @@
+wip() {
+    git add --all
+    git commit -m "WIP"
+    git push
+}
+
 talos() {
     $GOPATH/src/sei/talos-agent/talos-agent
 }
