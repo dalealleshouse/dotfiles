@@ -16,6 +16,7 @@ apt-vim install -y https://github.com/leafgarland/typescript-vim.git
 # apt-vim install -y https://github.com/alvan/vim-closetag.git
 # apt-vim install -y https://github.com/Townk/vim-autoclose.git
 apt-vim install -y https://github.com/Chiel92/vim-autoformat.git
+apt-vim install -y git://github.com/LaTeX-Box-Team/LaTeX-Box.git
 
 ################ python-mode ################
 apt-vim install -y https://github.com/python-mode/python-mode.git

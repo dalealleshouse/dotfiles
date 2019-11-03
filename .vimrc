@@ -18,8 +18,8 @@ let mapleader = "\<Space>"     " space as leader
 let g:mapleader = "\<Space>"   " space as leader
 
 syntax enable
-set background=light
 colorscheme molokai
+set background=light
 
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
@@ -34,13 +34,13 @@ autocmd FileType yaml set shiftwidth=2
 
 " 80 columns yo
 let &colorcolumn=join(range(81,999),",")
-autocmd FileType c let &colorcolumn=join(range(81,999),",")
-autocmd FileType c set textwidth=80
+" autocmd FileType c let &colorcolumn=join(range(81,999),",")
+" autocmd FileType c set textwidth=80
 
-autocmd FileType py let &colorcolumn=join(range(81,999),",")
+" autocmd FileType py let &colorcolumn=join(range(81,999),",")
 
-autocmd FileType markdown let &colorcolumn=join(range(81,999),",")
-autocmd FileType markdown set textwidth=80
+" autocmd FileType markdown let &colorcolumn=join(range(81,999),",")
+" autocmd FileType markdown set textwidth=80
 autocmd FileType markdown set nofoldenable
 
 " Navigate in a sane way
@@ -133,3 +133,9 @@ let g:formatdef_clangformat = "g:ClangFormatConfigFileExists() ? (" . s:configfi
 set visualbell
 
 :command WIP !bash -ic wip
+
+" LaTeX
+autocmd FileType tex set shiftwidth=2
+let g:LatexBox_latexmk_preview_continuously=1
+let g:LatexBox_quickfix=2
+let g:LatexBox_Folding=1

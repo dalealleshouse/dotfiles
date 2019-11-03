@@ -76,4 +76,3 @@ markdown() {
     source ~/py_venv/grip/bin/activate
     grip
 }
-

@@ -11,4 +11,5 @@ apt-get install -y \
     inotify-hookable \
     clang-tidy-6.0 \
     clang-format-6.0 \
-    git-lfs
+    git-lfs \
+    latexmk
