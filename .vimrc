@@ -16,6 +16,8 @@ set ruler       " show line numbers
 
 let mapleader = "\<Space>"     " space as leader
 let g:mapleader = "\<Space>"   " space as leader
+let maplocalleader = "\<Space>"
+let g:maplocalleader = "\<Space>"
 
 syntax enable
 colorscheme molokai
@@ -114,6 +116,7 @@ set nowritebackup
 
 let g:pymode_python = 'python3'
 
+" Folds
 autocmd FileType c set foldmethod=syntax
 autocmd FileType cpp set foldmethod=syntax
 autocmd FileType cxx set foldmethod=syntax
@@ -132,10 +135,28 @@ let g:formatdef_clangformat = "g:ClangFormatConfigFileExists() ? (" . s:configfi
 " prevent annoying bell everytime you reach the end of the file or line
 set visualbell
 
-:command WIP !bash -ic wip
-
-" LaTeX
+" LaTeX Settings
+" <Leader>ll Compile with latexmk.
+" <Leader>lL Force compilation with latexmk.
+" <Leader>lc Clean temporary output from LaTeX.
+" <Leader>lC Clean all output from LaTeX.
+" <Leader>lk Stop latexmk if it is running.
+" <Leader>lg Show the running status of latexmk for the current buffer.
+" <Leader>lG Show the running status of latexmk for all buffers with process group ID's.
+" <Leader>le Load the log file for the current document and jump to the first error.
+" <Leader>lf Recalculate the folds.
 autocmd FileType tex set shiftwidth=2
-let g:LatexBox_latexmk_preview_continuously=1
+let g:LatexBox_latexmk_preview_continuously=1 " Auto compile on change
 let g:LatexBox_quickfix=2
 let g:LatexBox_Folding=1
+
+" Gramerous Docs
+" https://github.com/rhysd/vim-grammarous
+nmap gw <Plug>(grammarous-move-to-info-window)
+nmap gr <Plug>(grammarous-reset)
+nmap gf <Plug>(grammarous-fixit)
+nmap gx <Plug>(grammarous-remove-error)
+nmap gn <Plug>(grammarous-move-to-next-error)
+nmap gp <Plug>(grammarous-move-to-previous-error)
+
+:command WIP !bash -ic wip
