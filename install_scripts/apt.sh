@@ -12,4 +12,5 @@ apt-get install -y \
     clang-tidy-6.0 \
     clang-format-6.0 \
     git-lfs \
-    latexmk
+    latexmk \
+    python-pygments
