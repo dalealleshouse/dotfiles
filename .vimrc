@@ -152,6 +152,7 @@ let g:LatexBox_Folding=1
 autocmd FileType tex setlocal spell
 " View the pdf of the current file
 :command LV ! xdg-open %:r.pdf
+let g:syntastic_tex_lacheck_quiet_messages = { 'regex': '\Vpossible unwanted space at' }
 
 " Gramerous Docs
 " https://github.com/rhysd/vim-grammarous
