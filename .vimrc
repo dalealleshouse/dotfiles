@@ -7,7 +7,7 @@ set relativenumber  " relative line numbers
 set showcmd     " show command I'm typing
 set nowrap      " do not wrap long lines
 set textwidth=80  " wrap at 79 characters
-autocmd FileType c set tabstop=4
+autocmd FileType c set tabstop=2
 autocmd FileType javascript set shiftwidth=2
 autocmd FileType html set shiftwidth=2
 autocmd FileType yaml set shiftwidth=2
@@ -20,9 +20,9 @@ let maplocalleader = "\<Space>"
 let g:maplocalleader = "\<Space>"
 
 syntax enable
-" colorscheme molokai
+colorscheme molokai
 " colorscheme dracula
-colorscheme inkpot
+" colorscheme inkpot
 " colorscheme jellybeans
 " colorscheme badwolf
 " set background=light
@@ -61,6 +61,7 @@ nmap <Leader>ns :set nospell<ENTER>
 
 nmap <Leader>" ysiw"
 nmap <Leader>' ysiw'
+nmap <Leader>` ysiw`
 
 nmap <Leader>x :YcmCompleter FixIt <CR>
 

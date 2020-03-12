@@ -16,6 +16,10 @@ iowa() {
     ssh -X 'dealleshouse@iowa.ssdlab.sei.cmu.edu'
 }
 
+myred() {
+    ssh dealleshouse@lx-beetroot.ad.sei.cmu.edu
+}
+
 twitter() {
     source ~/venv/rainbowstream/bin/activate
     rainbowstream
