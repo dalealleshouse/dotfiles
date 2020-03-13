@@ -1,6 +1,8 @@
 execute pathogen#infect()
 call pathogen#helptags()
 
+set clipboard=exclude:.*
+
 set nospell     " spell check
 set autochdir       " set directory to current file directory
 set relativenumber  " relative line numbers

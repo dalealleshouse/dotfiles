@@ -6,12 +6,10 @@ apt-get install -y \
     bear \
     build-essential \
     cmake \
-    clang-6.0 \
+    clang \
     tmux \
     inotify-hookable \
-    clang-tidy-6.0 \
-    clang-format-6.0 \
+    clang-tidy \
+    clang-format \
     git-lfs \
-    texlive-full \
-    latexmk \
-    python-pygments
+    vim-gtk
