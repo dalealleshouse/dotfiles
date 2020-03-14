@@ -12,4 +12,7 @@ apt-get install -y \
     clang-tidy \
     clang-format \
     git-lfs \
-    vim-gtk
+    vim-gtk \
+    libcunit1 \
+    libcunit1-doc \
+    libcunit1-dev

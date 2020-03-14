@@ -5,6 +5,6 @@ wip() {
 }
 
 markdown() {
-    source ~/py_venv/grip/bin/activate
+    source ~/venv/grip/bin/activate
     grip
 }
