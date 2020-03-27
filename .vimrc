@@ -5,11 +5,12 @@ set clipboard=exclude:.*
 
 set nospell     " spell check
 set autochdir       " set directory to current file directory
+set number
 set relativenumber  " relative line numbers
 set showcmd     " show command I'm typing
 set nowrap      " do not wrap long lines
 set textwidth=80  " wrap at 79 characters
-autocmd FileType c set tabstop=2
+autocmd FileType c set shiftwidth=2
 autocmd FileType javascript set shiftwidth=2
 autocmd FileType html set shiftwidth=2
 autocmd FileType yaml set shiftwidth=2
@@ -43,6 +44,9 @@ autocmd FileType yaml set shiftwidth=2
 " 80 columns yo
 let &colorcolumn=join(range(81,999),",")
 autocmd FileType markdown set nofoldenable
+autocmd FileType markdown 
+    \ set formatoptions-=q |
+    \ set formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\|^\\s*\[-*+]\\s\\+
 
 " Navigate in a sane way
 nnoremap <c-j> <c-w>j
@@ -94,6 +98,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 
 let g:syntastic_asm_checkers = ['nasm']
+let g:syntastic_python_checkers = ['flake8', 'mypy']
 autocmd BufNewFile,BufRead *.asm set filetype=nasm
 
 """""""""""""""" TypeScript """"""""""""""""

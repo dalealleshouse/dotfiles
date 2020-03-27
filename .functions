@@ -5,6 +5,17 @@ wip() {
 }
 
 markdown() {
-    source ~/venv/grip/bin/activate
-    grip
+    source ~/.venv/grip/bin/activate
+    export FLASK_ENV=development
+    grip --user dalealleshouse@gmail.com --pass HonorThor!1 -b
+}
+
+fix_date() {
+    sudo hwclock -s
+}
+
+mnt() {
+    # sudo mount -t drvfs D: /mnt/d
+    sudo mount -t drvfs ${1^^}: /mnt/${1,,}
+    echo drive avaiable at /mnt/${1,,}
 }
