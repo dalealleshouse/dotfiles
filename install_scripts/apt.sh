@@ -3,14 +3,16 @@
 apt-get update
 
 apt-get install -y \
-    cowsay \
-    vim \
-    vim-nox-py2 \
-    tmux \
-    xclip \
-    git \
-    openssh-server \
+    bear \
     build-essential \
     cmake \
-    python-dev \
-    python3-dev
+    clang \
+    tmux \
+    inotify-hookable \
+    clang-tidy \
+    clang-format \
+    git-lfs \
+    vim-gtk \
+    libcunit1 \
+    libcunit1-doc \
+    libcunit1-dev
