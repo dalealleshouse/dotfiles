@@ -58,7 +58,7 @@ nnoremap <c-l> <c-w>l
 nmap <Leader>= gg=G
 
 " Filter js and map files for TS projects
-nmap <Leader>f :let NERDTreeIgnore = ['\.a', '\.js$', '\.map$', '\.o', '\.so', '\.gcda', '\.gcno', '\.info']<ENTER>
+nmap <Leader>f :let NERDTreeIgnore = ['\.d', '\.a', '\.js$', '\.map$', '\.o', '\.so', '\.gcda', '\.gcno', '\.info']<ENTER>
 
 " Spell Checking
 autocmd BufNewFile,BufRead *.md set spell
@@ -99,6 +99,10 @@ let g:syntastic_auto_loc_list = 1
 
 let g:syntastic_asm_checkers = ['nasm']
 let g:syntastic_python_checkers = ['flake8', 'mypy']
+
+let g:ycm_show_diagnostics_ui = 0
+let g:syntastic_c_checkers = ['clang_tidy']
+let g:syntastic_cpp_checkers = ['clang_tidy']
 autocmd BufNewFile,BufRead *.asm set filetype=nasm
 
 """""""""""""""" TypeScript """"""""""""""""
@@ -133,8 +137,8 @@ autocmd FileType typescript set foldmethod=syntax
 " zM closes all open folds.
 " zR opens all folds in file
 
-let s:configfile_def = "'clang-format -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=file'"
-let s:noconfigfile_def = "'clang-format -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=\"{BasedOnStyle: WebKit, AlignTrailingComments: true, '.(&textwidth ? 'ColumnLimit: '.&textwidth.', ' : '').(&expandtab ? 'UseTab: Never, IndentWidth: '.shiftwidth() : 'UseTab: Always').'}\"'"
+let s:configfile_def = "'clang-format-10 -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=file'"
+let s:noconfigfile_def = "'clang-format-10 -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=\"{BasedOnStyle: WebKit, AlignTrailingComments: true, '.(&textwidth ? 'ColumnLimit: '.&textwidth.', ' : '').(&expandtab ? 'UseTab: Never, IndentWidth: '.shiftwidth() : 'UseTab: Always').'}\"'"
 let g:formatdef_clangformat = "g:ClangFormatConfigFileExists() ? (" . s:configfile_def . ") : (" . s:noconfigfile_def . ")"
 
 " prevent annoying bell everytime you reach the end of the file or line

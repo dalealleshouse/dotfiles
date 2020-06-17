@@ -7,7 +7,7 @@ wip() {
 markdown() {
     source ~/.venv/grip/bin/activate
     export FLASK_ENV=development
-    grip --user dalealleshouse@gmail.com --pass HonorThor!1 -b
+    grip --pass f240351e80be835e99e0c88c757921619208a995
 }
 
 fix_date() {
