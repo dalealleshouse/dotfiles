@@ -19,3 +19,7 @@ mnt() {
     sudo mount -t drvfs ${1^^}: /mnt/${1,,}
     echo drive avaiable at /mnt/${1,,}
 }
+
+nuc() {
+    ssh dalealleshouse@10.0.0.181
+}

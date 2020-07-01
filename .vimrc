@@ -84,25 +84,24 @@ let NERDTreeHijackNetrw = 1
 nmap <Leader>w :NERDTreeToggle<CR>
 
 """""""""""""""" Syntastic """"""""""""""""
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:tsuquyomi_disable_quickfix = 1
+" let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+" let g:syntastic_aggregate_errors = 1
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
-let g:syntastic_aggregate_errors = 1
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-
-let g:syntastic_asm_checkers = ['nasm']
-let g:syntastic_python_checkers = ['flake8', 'mypy']
+" let g:syntastic_asm_checkers = ['nasm']
+" let g:syntastic_python_checkers = ['flake8', 'mypy']
 
 let g:ycm_show_diagnostics_ui = 0
-let g:syntastic_c_checkers = ['clang_tidy']
-let g:syntastic_cpp_checkers = ['clang_tidy']
+" let g:syntastic_c_checkers = ['check', 'clang_tidy']
+" let g:syntastic_cpp_checkers = ['clang_tidy']
 autocmd BufNewFile,BufRead *.asm set filetype=nasm
 
 """""""""""""""" TypeScript """"""""""""""""
@@ -164,7 +163,8 @@ let g:LatexBox_Folding=1
 autocmd FileType tex setlocal spell
 " View the pdf of the current file
 :command LV ! xdg-open %:r.pdf
-let g:syntastic_tex_lacheck_quiet_messages = { 'regex': '\Vpossible unwanted space at' }
+" let g:syntastic_tex_lacheck_quiet_messages = { 'regex': '\Vpossible unwanted space at' }
+" let g:syntastic_quiet_messages = { 'regex': 'file not found' }
 
 " Gramerous Docs
 " https://github.com/rhysd/vim-grammarous
@@ -178,3 +178,7 @@ nmap gp <Plug>(grammarous-move-to-previous-error)
 let g:grammarous#use_vim_spelllang=1
 
 :command WIP !bash -ic wip
+
+set tags=tags;/
+let g:ale_open_list = 1
+let g:ale_linters = { 'c': ['clangd', 'clangtidy', 'cppcheck', 'cquery', 'flawfinder'], 'h': ['clangd', 'clangtidy', 'cppcheck', 'cquery', 'flawfinder'] }
