@@ -21,6 +21,8 @@ apt-vim install -y https://github.com/rhysd/vim-grammarous.git
 apt-vim install -y https://github.com/flazz/vim-colorschemes.git
 apt-vim install -y https://github.com/benshuailyu/online-thesaurus-vim.git
 apt-vim install -y https://github.com/dense-analysis/ale.git
+apt-vim install -y https://github.com/dkprice/vim-easygrep.git
+apt-vim install -y https://github.com/skywind3000/gutentags_plus.git
 
 ################ python-mode ################
 apt-vim install -y https://github.com/python-mode/python-mode.git

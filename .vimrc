@@ -182,3 +182,5 @@ let g:grammarous#use_vim_spelllang=1
 set tags=tags;/
 let g:ale_open_list = 1
 let g:ale_linters = { 'c': ['ccls', 'clangd', 'clangtidy', 'cppcheck', 'cquery', 'flawfinder'], 'cpp': ['ccls', 'clangd', 'clangtidy', 'cppcheck', 'cquery', 'flawfinder'] }
+
+noremap <leader>cr :py3f /usr/lib/llvm-10/share/clang/clang-rename.py<cr>
