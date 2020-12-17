@@ -3,6 +3,7 @@ call pathogen#helptags()
 
 set clipboard=exclude:.*
 
+set nojoinspaces " one space between paragraphs
 set nospell     " spell check
 set autochdir       " set directory to current file directory
 set number
@@ -129,6 +130,7 @@ autocmd FileType c set foldmethod=syntax
 autocmd FileType cpp set foldmethod=syntax
 autocmd FileType cxx set foldmethod=syntax
 autocmd FileType typescript set foldmethod=syntax
+autocmd FileType python set foldmethod=indent
 " za toggle a fold at the cursor.
 " zo opens a fold at the cursor.
 " zO opens all folds at the cursor.
@@ -166,21 +168,46 @@ autocmd FileType tex setlocal spell
 " let g:syntastic_tex_lacheck_quiet_messages = { 'regex': '\Vpossible unwanted space at' }
 " let g:syntastic_quiet_messages = { 'regex': 'file not found' }
 
-" Gramerous Docs
-" https://github.com/rhysd/vim-grammarous
-nmap <Leader>gc :GrammarousCheck<CR>
-nmap gw <Plug>(grammarous-move-to-info-window)
-nmap gr <Plug>(grammarous-reset)
-nmap gf <Plug>(grammarous-fixit)
-nmap gx <Plug>(grammarous-remove-error)
-nmap gn <Plug>(grammarous-move-to-next-error)
-nmap gp <Plug>(grammarous-move-to-previous-error)
 let g:grammarous#use_vim_spelllang=1
 
 :command WIP !bash -ic wip
 
-set tags=tags;/
 let g:ale_open_list = 1
-let g:ale_linters = { 'c': ['ccls', 'clangd', 'clangtidy', 'cppcheck', 'cquery', 'flawfinder'], 'cpp': ['ccls', 'clangd', 'clangtidy', 'cppcheck', 'cquery', 'flawfinder'] }
+let g:ale_linters = {
+\    'c': ['ccls', 'clangd', 'clangtidy', 'cppcheck', 'cquery', 'flawfinder'],
+\    'cpp': ['ccls', 'clangcheck', 'clangd', 'clangtidy', 'clazy', 'cppcheck', 'cpplint', 'cquery', 'flawfinder']
+\}
 
-noremap <leader>cr :py3f /usr/lib/llvm-10/share/clang/clang-rename.py<cr>
+" guentags
+set tags=tags;/
+" enable gtags module
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+
+" config project root markers.
+let g:gutentags_project_root = ['.root']
+
+" generate datebases in my cache directory, prevent gtags files polluting my project
+let g:gutentags_cache_dir = expand('~/.cache/tags')
+
+" change focus to quickfix window after search (optional).
+let g:gutentags_plus_switch = 1
+
+" <leader>cs  Find symbol (reference) under cursor
+" <leader>cg  Find symbol definition under cursor
+" <leader>cd  Functions called by this function
+" <leader>cc  Functions calling this function
+" <leader>ct  Find text string under cursor
+" <leader>ce  Find egrep pattern under cursor
+" <leader>cf  Find file name under cursor
+" <leader>ci  Find files #including the file name under cursor
+" <leader>ca  Find places where current symbol is assigned
+" <leader>cz  Find current word in ctags database
+
+"clang tools
+" let g:clang_rename_path='/usr/bin/clang-rename-10'
+" noremap <leader>cr :py3f /usr/lib/llvm-10/share/clang/clang-rename.py<cr>
+noremap <leader>cr :py3f /home/dalealleshouse/clang-rename.py<cr>
+noremap <leader>ci :pyf /usr/lib/llvm-10/share/clang/clang-include-fixer.py<cr>
+
+map :cr :0r ~/.vim/cr_header.txt
+
