@@ -24,6 +24,8 @@ apt-vim install -y https://github.com/dense-analysis/ale.git
 apt-vim install -y https://github.com/dkprice/vim-easygrep.git
 apt-vim install -y https://github.com/ludovicchabant/vim-gutentags.git
 apt-vim install -y https://github.com/skywind3000/gutentags_plus.git
+apt-vim install -y https://github.com/OmniSharp/omnisharp-vim.git
+
 
 ################ python-mode ################
 apt-vim install -y https://github.com/python-mode/python-mode.git

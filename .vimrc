@@ -114,6 +114,7 @@ autocmd FileType typescript syn clear foldBraces
 autocmd FileType typescript set shiftwidth=2
 autocmd filetype typescript noremap <F3> :set foldmethod=manual <CR> :Prettier<CR> :set foldmethod=syntax <CR>
 autocmd filetype javascript noremap <F3> :set foldmethod=manual <CR> :Prettier<CR> :set foldmethod=syntax <CR>
+autocmd filetype cs noremap <F3> :OmniSharpCodeFormat <CR>
 
 """""""""""""""" closetag """"""""""""""""
 " # filenames like *.xml, *.html, *.xhtml, ...
@@ -173,9 +174,15 @@ let g:grammarous#use_vim_spelllang=1
 :command WIP !bash -ic wip
 
 let g:ale_open_list = 1
+autocmd BufNewFile,BufRead *.h set filetype=c
 let g:ale_linters = {
-\    'c': ['ccls', 'clangd', 'clangtidy', 'cppcheck', 'cquery', 'flawfinder'],
-\    'cpp': ['ccls', 'clangcheck', 'clangd', 'clangtidy', 'clazy', 'cppcheck', 'cpplint', 'cquery', 'flawfinder']
+\    'c': ['clangtidy', 'clangd', 'clang'],
+\    'cpp': ['clangtidy']
+\}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'c': ['clang-format', 'clangtidy'],
+\   'javascript': ['eslint'],
 \}
 
 " guentags
