@@ -11,6 +11,10 @@ set relativenumber  " relative line numbers
 set showcmd     " show command I'm typing
 set nowrap      " do not wrap long lines
 set textwidth=80  " wrap at 79 characters
+
+autocmd FileType cs set textwidth=120
+autocmd FileType cs let &colorcolumn=join(range(121,999),",")
+
 autocmd FileType c set shiftwidth=2
 autocmd FileType javascript set shiftwidth=2
 autocmd FileType html set shiftwidth=2
@@ -128,6 +132,8 @@ let g:pymode_python = 'python3'
 
 " Folds
 autocmd FileType c set foldmethod=syntax
+autocmd FileType cs set foldmethod=syntax
+autocmd FileType cs set syntax=cpp
 autocmd FileType cpp set foldmethod=syntax
 autocmd FileType cxx set foldmethod=syntax
 autocmd FileType typescript set foldmethod=syntax
@@ -217,4 +223,3 @@ noremap <leader>cr :py3f /home/dalealleshouse/clang-rename.py<cr>
 noremap <leader>ci :pyf /usr/lib/llvm-10/share/clang/clang-include-fixer.py<cr>
 
 map :cr :0r ~/.vim/cr_header.txt
-
