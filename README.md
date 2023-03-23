@@ -53,3 +53,28 @@ Clone the dotfile repository and checkout the nvim branch.
 git clone git@github.com:dalealleshouse/dotfiles.git
 git checkout nvim
 ```
+
+# TMUX
+Install tmux
+
+``` bash
+sudo apt install tmux -y
+ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
+```
+
+# Programming Language Tools
+Use `pengwin-setup` to install language tools.
+
+- `PROGRAMMING` 
+	* `GO`
+	* `NODEJS`
+		- `NVM`
+	* `PYTHONPI`
+		- `PYENV`
+
+# NVIM
+Run the pre-made isntall script
+
+``` bash
+./nvim_install.sh
+```
