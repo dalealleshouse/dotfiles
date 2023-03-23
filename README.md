@@ -10,6 +10,7 @@ Another indispensable tool required for WSL development is [windows
 terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701),
 which is also available in the Microsoft store.
 
+# Updates
 Once you get to a Pengwin terminal, get the latest updates with the following commands:
 
 ``` bash
@@ -18,6 +19,7 @@ sudo apt full-upgrade -y
 sudo apt autoremove -y
 ```
 
+# Git
 Configure git with the following commands:
 
 ``` bash
@@ -37,6 +39,13 @@ At this point, your public RSA key should be on your clipboard. Follow the
 instructions
 [here]("https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/")
 to configure github authentication keys.
+
+## Optional [poshgit](https://github.com/dahlbyk/posh-git) configuration - trust me, you want this
+
+``` bash
+./install_scripts/postgit_install.sh
+```
+
 
 Next, create a directory to hold all of yoru source code and navigate into it.
 
