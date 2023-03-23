@@ -24,6 +24,7 @@ Use `pengwin-setup` to install language tools.
 
 - `PROGRAMMING`
 	* `GO`
+	* `JAVA`
 	* `NODEJS`
 		- `NVM`
 	* `PYTHONPI`
@@ -48,7 +49,7 @@ clip.exe  < ~/.ssh/id_rsa.pub
 
 At this point, your public RSA key should be on your clipboard. Follow the
 instructions
-[here]("https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/")
+[here](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
 to configure github authentication keys.
 
 Clone the dotfiles repository and checkout the nvim branch.
@@ -71,12 +72,6 @@ Install tmux
 ``` bash
 sudo apt install tmux -y
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
-```
-
-
-Install the latest version of python using pyenv
-```bash
-pyenv install 3.9.9
 ```
 
 # NVIM

@@ -31,10 +31,10 @@ repo_list=(
 )
 
 # Iterate through the repository URLs
-# for repo_url in "${repo_list[@]}"; do
-#   # Clone the repository into the target directory
-#   git clone "$repo_url" "$target_directory/$(basename "$repo_url" .git)"
-# done
+for repo_url in "${repo_list[@]}"; do
+  # Clone the repository into the target directory
+  git clone "$repo_url" "$target_directory/$(basename "$repo_url" .git)"
+done
 
 pushd ./
 cd $target_directory/vimproc.vim
