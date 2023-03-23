@@ -19,6 +19,16 @@ sudo apt full-upgrade -y
 sudo apt autoremove -y
 ```
 
+# Programming Language Tools
+Use `pengwin-setup` to install language tools.
+
+- `PROGRAMMING`
+	* `GO`
+	* `NODEJS`
+		- `NVM`
+	* `PYTHONPI`
+		- `PYENV`
+
 # Git
 Configure git with the following commands:
 
@@ -35,23 +45,24 @@ ssh-add
 clip.exe  < ~/.ssh/id_rsa.pub
 ```
 
+
 At this point, your public RSA key should be on your clipboard. Follow the
 instructions
 [here]("https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/")
 to configure github authentication keys.
 
+Clone the dotfiles repository and checkout the nvim branch.
+
+``` bash
+git clone git@github.com:dalealleshouse/dotfiles.git
+cd dotfiles
+git checkout nvim
+```
+
 ## Optional [poshgit](https://github.com/dahlbyk/posh-git) configuration - trust me, you want this
 
 ``` bash
 ./install_scripts/postgit_install.sh
-```
-
-
-Clone the dotfile repository and checkout the nvim branch.
-
-``` bash
-git clone git@github.com:dalealleshouse/dotfiles.git
-git checkout nvim
 ```
 
 # TMUX
@@ -62,15 +73,6 @@ sudo apt install tmux -y
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ```
 
-# Programming Language Tools
-Use `pengwin-setup` to install language tools.
-
-- `PROGRAMMING`
-	* `GO`
-	* `NODEJS`
-		- `NVM`
-	* `PYTHONPI`
-		- `PYENV`
 
 Install the latest version of python using pyenv
 ```bash
