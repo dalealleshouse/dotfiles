@@ -47,13 +47,6 @@ to configure github authentication keys.
 ```
 
 
-Next, create a directory to hold all of yoru source code and navigate into it.
-
-``` bash
-mkdir src
-cd src
-```
-
 Clone the dotfile repository and checkout the nvim branch.
 
 ``` bash

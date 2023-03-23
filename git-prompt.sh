@@ -1,9 +1,19 @@
 # bash/zsh git prompt support
 #
-# Copyright (C) 2018 David Xu
+#    Copyright (C) 2022 David Xu
 #
-# Based on the earlier work by Shawn O. Pearce <spearce@spearce.org>
-# Distributed under the GNU General Public License, version 2.0.
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 # This script allows you to see the current branch in your prompt,
 # posh-git style.
@@ -87,26 +97,48 @@
 #
 ###############################################################################
 
-# Convenience function to set PS1 to show git status. Must supply two
-# arguments that specify the prefix and suffix of the git status string.
+# Convenience function to set PS1 to show git status. Must supply exactly
+# either two or four arguments that specify the prefix and suffix of the git
+# status string.
+#
+#   __posh_git_ps1 PREFIX SUFFIX
+#
+#   __posh_git_ps1 PREFIX SUFFIX GIT_PREFIX GIT_SUFFIX
+#
+# In the four-argument form, uses GIT_PREFIX and GIT_SUFFIX if git status is
+# present, effectively as if
+#
+# ${PREFIX}${GIT_PREFIX}${POSH}${GIT_SUFFIX}${SUFFIX}
 #
 # This function should be called in PROMPT_COMMAND or similar.
 __posh_git_ps1 ()
 {
     local ps1pc_prefix=
     local ps1pc_suffix=
+    local git_prefix=
+    local git_suffix=
     case "$#" in
         2)
             ps1pc_prefix=$1
             ps1pc_suffix=$2
             ;;
+        4)
+            ps1pc_prefix=$1
+            ps1pc_suffix=$2
+            git_prefix=$3
+            git_suffix=$4
+            ;;
         *)
             echo __posh_git_ps1: bad number of arguments >&2
             return
             ;;
-    esac
+        esac
     local gitstring=$(__posh_git_echo)
-    PS1=$ps1pc_prefix$gitstring$ps1pc_suffix
+    if [ -z "$gitstring" ]; then
+      PS1=$ps1pc_prefix$ps1pc_suffix
+    else
+      PS1=$ps1pc_prefix$git_prefix$gitstring$git_suffix$ps1pc_suffix
+    fi
 }
 
 __posh_color () {
@@ -170,6 +202,12 @@ __posh_git_echo () {
     local StashBackgroundColor=
     local BeforeStash='('
     local AfterStash=')'
+
+    local LocalDefaultStatusSymbol=''
+    local LocalWorkingStatusSymbol=' !'
+    local LocalWorkingStatusColor=$(__posh_color "$Red")
+    local LocalStagedStatusSymbol=' ~'
+    local LocalStagedStatusColor=$(__posh_color "$BrightCyan")
 
     local RebaseForegroundColor=$(__posh_color '\e[0m') # reset
     local RebaseBackgroundColor=
@@ -263,7 +301,7 @@ __posh_git_echo () {
 
         b=$(git symbolic-ref HEAD 2>/dev/null) || {
             is_detached=true
-            local output=$(git config -z --get bash.describeStyle)
+            local output=$(git config --get bash.describeStyle)
             if [ -n "$output" ]; then
                 GIT_PS1_DESCRIBESTYLE=$output
             fi
@@ -329,6 +367,9 @@ __posh_git_echo () {
                 M )
                     (( indexModified++ ))
                     ;;
+                T )
+                    (( indexModified++ ))
+                    ;;
                 R )
                     (( indexModified++ ))
                     ;;
@@ -350,6 +391,9 @@ __posh_git_echo () {
                     (( filesAdded++ ))
                     ;;
                 M )
+                    (( filesModified++ ))
+                    ;;
+                T )
                     (( filesModified++ ))
                     ;;
                 D )
@@ -400,10 +444,13 @@ __posh_git_echo () {
         gitstring+="$BranchBackgroundColor$BranchForegroundColor$branchstring$BranchIdenticalStatusSymbol"
     fi
 
+    gitstring+="${rebase:+$RebaseForegroundColor$RebaseBackgroundColor$rebase}"
+
     # index status
     if $EnableFileStatus; then
         local indexCount="$(( $indexAdded + $indexModified + $indexDeleted + $indexUnmerged ))"
         local workingCount="$(( $filesAdded + $filesModified + $filesDeleted + $filesUnmerged ))"
+
         if (( $indexCount != 0 )) || $ShowStatusWhenZero; then
             gitstring+="$IndexBackgroundColor$IndexForegroundColor +$indexAdded ~$indexModified -$indexDeleted"
         fi
@@ -419,11 +466,23 @@ __posh_git_echo () {
         if (( $filesUnmerged != 0 )); then
             gitstring+=" $WorkingBackgroundColor$WorkingForegroundColor!$filesUnmerged"
         fi
-    fi
-    gitstring+="${rebase:+$RebaseForegroundColor$RebaseBackgroundColor$rebase}"
 
-    if $EnableStashStatus && $hasStash; then
-        gitstring+="$DefaultBackgroundColor$DefaultForegroundColor $StashBackgroundColor$StashForegroundColor$BeforeStash$stashCount$AfterStash"
+        local localStatusSymbol=$LocalDefaultStatusSymbol
+        local localStatusColor=$DefaultForegroundColor
+       
+        if (( workingCount != 0 )); then
+            localStatusSymbol=$LocalWorkingStatusSymbol
+            localStatusColor=$LocalWorkingStatusColor
+        elif (( indexCount != 0 )); then
+            localStatusSymbol=$LocalStagedStatusSymbol
+            localStatusColor=$LocalStagedStatusColor
+        fi
+
+        gitstring+="$DefaultBackgroundColor$localStatusColor$localStatusSymbol$DefaultForegroundColor"
+
+        if $EnableStashStatus && $hasStash; then
+            gitstring+="$DefaultBackgroundColor$DefaultForegroundColor $StashBackgroundColor$StashForegroundColor$BeforeStash$stashCount$AfterStash"
+        fi
     fi
 
     # after-branch text
