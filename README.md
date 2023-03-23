@@ -62,20 +62,37 @@ sudo apt install tmux -y
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ```
 
-# NVIM
-Run the pre-made isntall script
-
-``` bash
-./nvim_install.sh
-```
-
 # Programming Language Tools
 Use `pengwin-setup` to install language tools.
 
-- `PROGRAMMING` 
+- `PROGRAMMING`
 	* `GO`
 	* `NODEJS`
 		- `NVM`
 	* `PYTHONPI`
 		- `PYENV`
 
+Install the latest version of python using pyenv
+```bash
+pyenv install 3.9.9
+```
+
+# NVIM
+Install the prerequisites
+``` bash
+sudo apt install build-essential cmake -y
+```
+
+Run the pre-made install script
+
+``` bash
+./nvim_install.sh
+```
+
+Link the config file
+
+``` bash
+mkdir -p ~/.config/nvim/
+mkdir -p ~/.config/nvim/pack/plugin/start/
+ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
+```
