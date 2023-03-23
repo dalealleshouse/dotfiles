@@ -62,6 +62,13 @@ sudo apt install tmux -y
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ```
 
+# NVIM
+Run the pre-made isntall script
+
+``` bash
+./nvim_install.sh
+```
+
 # Programming Language Tools
 Use `pengwin-setup` to install language tools.
 
@@ -72,9 +79,3 @@ Use `pengwin-setup` to install language tools.
 	* `PYTHONPI`
 		- `PYENV`
 
-# NVIM
-Run the pre-made isntall script
-
-``` bash
-./nvim_install.sh
-```

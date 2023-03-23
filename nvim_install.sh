@@ -22,4 +22,10 @@ rm nvim-linux64.deb
 # Verify the installation and check the Neovim version
 nvim --version
 
+# Add vim to nvim alias if it doesn't exist
+grep -qxF "alias vim='nvim'" ~/.bashrc || echo "\nalias vim='nvim'" >> ~/.bashrc
+
+# Apply the changes immediately
+source ~/.bashrc
+
 echo "Neovim installation completed successfully."
