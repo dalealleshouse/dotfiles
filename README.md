@@ -117,3 +117,8 @@ ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
 
 Restart bash, open nvim and run the `:checkhealth` command to verify the
 install.
+
+Configure Copilot, open nvim and issue the command
+```
+:Copilot setup
+```
