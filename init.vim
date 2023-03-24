@@ -102,8 +102,8 @@ nmap <Leader>' ysiw'
 nmap <Leader>` ysiw`
 
 let g:loaded_perl_provider = 0
-let g:python3_host_prog = '~/.pyenv/versions/neovim/bin/python3.11'
 let g:ycm_enable_inlay_hints = 1
+let g:python3_host_prog = expand('~/.config/nvim/envs/neovim_py/bin/python')
 
 let g:prettier#exec_cmd_async = 1
 let g:prettier#config#use_tabs = 'false'
