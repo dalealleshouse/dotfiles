@@ -21,7 +21,8 @@ sudo apt autoremove -y
 
 Install the prerequisites
 ``` bash
-apt install build-essential cmake apt install wget curl gnupg2 ca-certificates lsb-release apt-transport-https -y
+sudo apt install build-essential cmake apt install wget curl gnupg2 ca-certificates lsb-release apt-transport-https -y
+sudo apt-get install -y libassuan-dev libdevmapper-dev libglib2.0-dev libgpgme-dev libgpg-error-dev libostree-dev libseccomp-dev libselinux1-dev libsystemd-dev go-md2man runc conmon -y
 ```
 
 # Programming Language Tools
@@ -124,14 +125,9 @@ Configure Copilot, open nvim and issue the command
 ```
 
 # Podman
-Install
-
 ```
-sudo apt install podman -y
-```
-
-Create docker alias
-```
-grep -qxF "alias docker='podman'" ~/.bash_aliases || echo "alias docker='podman'" >> ~/.bash_aliases
-grep -qxF "alias docker-compose='podman-compose'" ~/.bash_aliases || echo "alias docker-compose='podman-compose'" >> ~/.bash_aliases
+./podman_config.sh
+sudo apt-get update
+sudo apt-get install -y podman
+pip3 install --user podman-compose
 ```
