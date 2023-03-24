@@ -122,3 +122,16 @@ Configure Copilot, open nvim and issue the command
 ```
 :Copilot setup
 ```
+
+# Podman
+Install
+
+```
+sudo apt install podman -y
+```
+
+Create docker alias
+```
+grep -qxF "alias docker='podman'" ~/.bash_aliases || echo "alias docker='podman'" >> ~/.bash_aliases
+grep -qxF "alias docker-compose='podman-compose'" ~/.bash_aliases || echo "alias docker-compose='podman-compose'" >> ~/.bash_aliases
+```
