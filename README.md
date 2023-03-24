@@ -19,6 +19,11 @@ sudo apt full-upgrade -y
 sudo apt autoremove -y
 ```
 
+Install the prerequisites
+``` bash
+apt install build-essential cmake apt install wget curl gnupg2 ca-certificates lsb-release apt-transport-https -y
+```
+
 # Programming Language Tools
 Use `pengwin-setup` to install language tools.
 
@@ -29,6 +34,7 @@ Use `pengwin-setup` to install language tools.
 		- `NVM`
 	* `PYTHONPI`
 		- `PYENV`
+    * `RUBY`
 
 # Git
 Configure git with the following commands:
@@ -46,7 +52,6 @@ ssh-add
 clip.exe  < ~/.ssh/id_rsa.pub
 ```
 
-
 At this point, your public RSA key should be on your clipboard. Follow the
 instructions
 [here](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
@@ -60,7 +65,8 @@ cd dotfiles
 git checkout nvim
 ```
 
-## Optional [poshgit](https://github.com/dahlbyk/posh-git) configuration - trust me, you want this
+## Optional [poshgit](https://github.com/dahlbyk/posh-git) configuration -
+trust me, you want this
 
 ``` bash
 ./install_scripts/postgit_install.sh
@@ -75,9 +81,10 @@ ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 ```
 
 # NVIM
-Install the prerequisites
+Create the config directories
+
 ``` bash
-sudo apt install build-essential cmake -y
+mkdir -p ~/.config/nvim/pack/plugin/start/
 ```
 
 Run the pre-made install script
@@ -86,10 +93,27 @@ Run the pre-made install script
 ./nvim_install.sh
 ```
 
-Link the config file
-
+Configure tooling support
 ``` bash
-mkdir -p ~/.config/nvim/
-mkdir -p ~/.config/nvim/pack/plugin/start/
+# python
+pip3 install --user virtualenv
+mkdir -p ~/.config/nvim/envs
+virtualenv --python=$(which python3) ~/.config/nvim/envs/neovim_py
+source ~/.config/nvim/envs/neovim_py/bin/activate
+pip install pynvim
+deactivate
+
+# node
+yarn global add neovim
+
+# ruby
+gem install neovim
+```
+
+Link the config file
+``` bash
 ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
 ```
+
+Restart bash, open nvim and run the `:checkhealth` command to verify the
+install.
