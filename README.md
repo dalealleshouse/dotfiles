@@ -1,5 +1,7 @@
 # WSL Environment Setup
 
+## Distribution
+
 My preferred WSL Linux distribution is [Whitewater Foundry's
 Pengwin](https://github.com/WhitewaterFoundry/Pengwin). It's available in the
 [Microsoft
@@ -10,7 +12,8 @@ Another indispensable tool required for WSL development is [windows
 terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701),
 which is also available in the Microsoft store.
 
-# Updates
+## Package Updates
+
 Once you get to a Pengwin terminal, get the latest updates with the following commands:
 
 ``` bash
@@ -20,22 +23,24 @@ sudo apt autoremove -y
 ```
 
 Install the prerequisites
-``` bash
+
+```bash
 sudo apt install build-essential cmake apt install wget curl gnupg2 ca-certificates lsb-release apt-transport-https -y
 sudo apt-get install -y libassuan-dev libdevmapper-dev libglib2.0-dev libgpgme-dev libgpg-error-dev libostree-dev libseccomp-dev libselinux1-dev libsystemd-dev go-md2man runc conmon -y
 ```
 
-# Programming Language Tools
+## Programming Language Tools
+
 Use `pengwin-setup` to install language tools.
 
 - `PROGRAMMING`
-	* `GO`
-	* `JAVA`
-	* `NODEJS`
-		- `NVM`
-	* `PYTHONPI`
-		- `PYENV`
-    * `RUBY`
+  - `GO`
+  - `JAVA`
+  - `NODEJS`
+    - `NVM`
+  - `PYTHONPI`
+    - `PYENV`
+  - `RUBY`
 
 # Git
 Configure git with the following commands:
