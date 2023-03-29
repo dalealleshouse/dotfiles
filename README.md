@@ -75,7 +75,7 @@ git checkout nvim
 trust me, you want this
 
 ``` bash
-./install_scripts/postgit_install.sh
+./postgit_install.sh
 ```
 
 # TMUX
