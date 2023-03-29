@@ -125,9 +125,51 @@ Configure Copilot, open nvim and issue the command
 ```
 
 # Podman
+If you don't need to use VS Code devcontainers, do this:
 ```
 ./podman_config.sh
 sudo apt-get update
 sudo apt-get install -y podman
 pip3 install --user podman-compose
+```
+
+In order to use VS Code devcontainer, you need podman version 4.4. As of the
+this instance, the latest Debian repo only has 3.4. The only viable option is
+to build from source. So, if you need need to use devcontainers, do this:
+
+```
+sudo dnf install -y \
+  make \
+  golang \
+  go-md2man \
+  iptables \
+  glib2-devel \
+  device-mapper-devel \
+  gpgme-devel \
+  ostree-devel \
+  protobuf-c-devel \
+  protobuf-devel \
+  libseccomp-devel \
+  libselinux-devel \
+  pkgconf-pkg-config \
+  runc \
+  containers-common \
+  slirp4netns \
+  apparmor-devel \
+  systemd-devel \
+  libcap-devel \
+  glibc-devel
+
+cd ~/src/
+git clone https://github.com/containers/podman.git
+cd podman
+
+git checkout v4.4.4
+
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
+
+make
+
+sudo make install
 ```
