@@ -129,7 +129,7 @@ If you don't need to use VS Code devcontainers, do this:
 ```
 ./podman_config.sh
 sudo apt-get update
-sudo apt-get install -y podman
+sudo apt-get install -y podman podman-compose
 pip3 install --user podman-compose
 ```
 
