@@ -130,7 +130,7 @@ If you don't need to use VS Code devcontainers, do this:
 ./podman_config.sh
 sudo apt-get update
 sudo apt-get install -y podman podman-compose
-pip3 install --user podman-compose
+pip3 install --user ~/src/podman-compose
 ```
 
 In order to use VS Code devcontainer, you need podman version 4.4. As of the
@@ -172,4 +172,5 @@ export PATH=$PATH:$GOPATH/bin
 make
 
 sudo make install
+pip3 install --user ~/src/podman-compose
 ```

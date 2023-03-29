@@ -1,4 +1,11 @@
 #!/bin/bash
+
+pushd ./
+cd ~/src/
+git clone https://github.com/containers/podman-compose.git
+cd podman-compose
+popd
+
 grep -qxF "alias docker='podman'" ~/.bash_aliases || echo "alias docker='podman'" >> ~/.bash_aliases
 grep -qxF "alias docker-compose='podman-compose'" ~/.bash_aliases || echo "alias docker-compose='podman-compose'" >> ~/.bash_aliases
 
