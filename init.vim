@@ -78,7 +78,8 @@ let g:ale_fix_on_save = 1
 let g:ale_linters = {
 \    'c': ['clangtidy', 'clangd', 'clang'],
 \    'cpp': ['clangtidy'],
-\   'jsx':  ['stylelint', 'eslint']
+\   'jsx':  ['stylelint', 'eslint'],
+\   'markdown':  ['languagetool'],
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -108,3 +109,10 @@ let g:python3_host_prog = expand('~/.config/nvim/envs/neovim_py/bin/python')
 let g:prettier#exec_cmd_async = 1
 let g:prettier#config#use_tabs = 'false'
 nnoremap <F3> :PrettierAsync<CR>
+
+" LanguageTool
+let g:languagetool_server_jar = expand('~/LanguageTool-6.1-stable/languagetool-server.jar')
+autocmd User LanguageToolCheckDone LanguageToolSummary
+autocmd Filetype markdown LanguageToolSetUp
+
+set printdevice=Brother
