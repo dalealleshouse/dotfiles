@@ -25,8 +25,8 @@ sudo apt autoremove -y
 Install the prerequisites
 
 ```bash
-sudo apt install build-essential cmake apt install wget curl gnupg2 ca-certificates lsb-release apt-transport-https -y
-sudo apt-get install -y libassuan-dev libdevmapper-dev libglib2.0-dev libgpgme-dev libgpg-error-dev libostree-dev libseccomp-dev libselinux1-dev libsystemd-dev go-md2man runc conmon -y
+sudo apt install build-essential cmake apt wget curl gnupg2 ca-certificates lsb-release apt-transport-https -y
+sudo apt install -y libassuan-dev libdevmapper-dev libglib2.0-dev libgpgme-dev libgpg-error-dev libostree-dev libseccomp-dev libselinux1-dev libsystemd-dev go-md2man runc conmon -y
 ```
 
 ## Programming Language Tools
@@ -75,7 +75,7 @@ git checkout nvim
 trust me, you want this
 
 ``` bash
-./postgit_install.sh
+./poshgit_install.sh
 ```
 
 # TMUX
@@ -110,10 +110,16 @@ pip install pynvim
 deactivate
 
 # node
-yarn global add neovim
+npm install neovim -g
 
 # ruby
 gem install neovim
+```
+
+Install plugins
+
+``` bash
+./nvim_plugins.sh
 ```
 
 Link the config file

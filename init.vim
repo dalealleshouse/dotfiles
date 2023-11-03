@@ -111,8 +111,8 @@ let g:prettier#config#use_tabs = 'false'
 nnoremap <F3> :PrettierAsync<CR>
 
 " LanguageTool
-let g:languagetool_server_jar = expand('~/LanguageTool-6.1-stable/languagetool-server.jar')
-autocmd User LanguageToolCheckDone LanguageToolSummary
-autocmd Filetype markdown LanguageToolSetUp
+" let g:languagetool_server_jar = expand('~/LanguageTool-6.1-stable/languagetool-server.jar')
+" autocmd User LanguageToolCheckDone LanguageToolSummary
+" autocmd Filetype markdown LanguageToolSetUp
 
-set printdevice=Brother
+" set printdevice=Brother

@@ -1,13 +1,17 @@
 #!/bin/bash
 
 # Download the latest Neovim release package
-wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.deb
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+./nvim.appimage
+./nvim.appimage --appimage-extract
+./squashfs-root/AppRun --version
+sudo mv squashfs-root /
+sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
 
-# Install the Neovim Debian package
-sudo apt install -y ./nvim-linux64.deb
 
 # Remove the downloaded package
-rm nvim-linux64.deb
+rm nvim.appimage
 
 # Verify the installation and check the Neovim version
 nvim --version
