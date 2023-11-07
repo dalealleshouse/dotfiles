@@ -28,6 +28,7 @@ repo_list=(
     "git@github.com:tpope/vim-surround.git"
     "git@github.com:ycm-core/YouCompleteMe.git"
     "https://github.com/jnurmine/Zenburn.git"
+    "git@github.com:prabirshrestha/asyncomplete.vim.git"
 )
 
 # Iterate through the repository URLs
